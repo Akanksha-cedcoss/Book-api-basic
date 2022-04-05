@@ -1,0 +1,35 @@
+
+<div class="super_container">
+<a class="btn btn-primary" href="http://localhost:8080/index/index">Back</a>
+  <div class="single_product">
+    <div class="container-fluid mt-5" style=" background-color: #fff; padding: 11px;">
+      <div class="row">
+        <img src="https://covers.openlibrary.org/b/id/<?php echo $book['covers'][0] ?>-L.jpg" alt="" style="height: 500px; width:500px">
+        <div class="col-lg-6 order-3">
+          <div class="product_description">
+
+            <div class="product_name h1"><?php echo $book['title'] ?></div>
+
+            <div> <span class="product_price h3">Author Name: <?php echo $book['authors'][0]['name'] ?></span> </div>
+            <div class="h4"> <span class="product_saved">Description :</span>
+              <span style='color:black'><?php echo $book['description']['value'] ?? '' ?></span>
+            </div>
+            <hr class="singleline">
+            <div class="h5">
+              <span class="product_info">Publisher : <?php echo $book['publishers'][0] ?></span><br>
+              <span class="product_info">Publish Date : <?php echo $book['publish_date'] ?></span><br>
+              <span class="product_info">Subjects : <?php echo $book['subjects'][0] ?></span><br>
+            </div>
+
+            <hr class="singleline">
+            <?php if (isset($book['identifiers'])) {
+              echo '<form method="post" action="http://localhost:8080/index/google/'.$book['identifiers']['google'][0].'">
+              <input type="submit" class="btn btn-primary" value="Go to Google">
+              </form>';
+            } ?>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
